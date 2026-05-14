@@ -111,5 +111,20 @@ class Renderer:
         hint = self.font_small.render("Press P to resume", True, WHITE)
         surface.blit(hint, (self.width // 2 - hint.get_width() // 2, self.height // 2 + 30))
 
+    def draw_game_over(self, surface: pygame.Surface, score: int) -> None:
+        surface.fill(BLACK)
+        txt = self.font_large.render("GAME OVER", True, RED)
+        surface.blit(txt, (self.width // 2 - txt.get_width() // 2, self.height // 2 - 60))
+        s = self.font_small.render(f"Score: {score}", True, WHITE)
+        surface.blit(s, (self.width // 2 - s.get_width() // 2, self.height // 2))
+        hint = self.font_small.render("ENTER — New Game   ESC — Menu", True, (160, 160, 160))
+        surface.blit(hint, (self.width // 2 - hint.get_width() // 2, self.height // 2 + 50))
 
-
+    def draw_victory(self, surface: pygame.Surface, score: int) -> None:
+        surface.fill(DARK)
+        txt = self.font_large.render("YOU WIN!", True, YELLOW)
+        surface.blit(txt, (self.width // 2 - txt.get_width() // 2, self.height // 2 - 60))
+        s = self.font_small.render(f"Score: {score}", True, WHITE)
+        surface.blit(s, (self.width // 2 - s.get_width() // 2, self.height // 2))
+        hint = self.font_small.render("ENTER — New Game   ESC — Menu", True, (160, 160, 160))
+        surface.blit(hint, (self.width // 2 - hint.get_width() // 2, self.height // 2 + 50))
