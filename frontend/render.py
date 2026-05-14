@@ -102,6 +102,14 @@ class Renderer:
             t = self.font_tiny.render(hint, True, (180, 180, 180))
             surface.blit(t, (self.width // 2 - t.get_width() // 2, 260 + i * 22))
 
+    def draw_pause(self, surface: pygame.Surface) -> None:
+        overlay = pygame.Surface((self.width, self.height), pygame.SRCALPHA)
+        overlay.fill((0, 0, 0, 140))
+        surface.blit(overlay, (0, 0))
+        txt = self.font_large.render("PAUSED", True, YELLOW)
+        surface.blit(txt, (self.width // 2 - txt.get_width() // 2, self.height // 2 - 20))
+        hint = self.font_small.render("Press P to resume", True, WHITE)
+        surface.blit(hint, (self.width // 2 - hint.get_width() // 2, self.height // 2 + 30))
 
 
 
