@@ -1,4 +1,5 @@
 from backend.core.game_map import Vec2
+from backend.utils.config import GameConfig
 
 # кардинальные направления как (dx, dy) в пикселях
 DIR_RIGHT = Vec2(1, 0)
@@ -15,7 +16,8 @@ class PacMan:
     COLLISION_RADIUS   = 10
 
 
-
+    def __init__(self, start: Vec2, config: GameConfig):
+        self.position = Vec2(start.x, start.y)
 
 
 
