@@ -82,6 +82,26 @@ class Renderer:
         self._draw_hud(surface, score, high_score, lives, level)
 
 
+    def draw_menu(self, surface: pygame.Surface, high_score: int) -> None:
+        surface.fill(self.bg_color)
+        # Title
+        title = self.font_large.render("PAC-MAN", True, YELLOW)
+        surface.blit(title, (self.width // 2 - title.get_width() // 2, 80))
+        # Subtitle
+        sub = self.font_small.render("Press ENTER to Start", True, WHITE)
+        surface.blit(sub, (self.width // 2 - sub.get_width() // 2, 150))
+        hs = self.font_small.render(f"High Score: {high_score}", True, CYAN)
+        surface.blit(hs, (self.width // 2 - hs.get_width() // 2, 190))
+        # Controls hint
+        hints = [
+            "Arrow Keys / WASD — Move",
+            "P — Pause",
+            "ESC — Menu",
+        ]
+        for i, hint in enumerate(hints):
+            t = self.font_tiny.render(hint, True, (180, 180, 180))
+            surface.blit(t, (self.width // 2 - t.get_width() // 2, 260 + i * 22))
+
 
 
 
