@@ -2,6 +2,11 @@ from __future__ import annotations
 import math
 import pygame
 
+from backend.core.game_map import GameMap, Vec2, WALL, DOT, ENERGIZER, GHOST_HOUSE
+from backend.entities.pacman import PacMan
+from backend.entities.ghost import Ghost, GhostMode, GhostPersonality
+from backend.core.game_engine import GameState
+from backend.utils.config import GameConfig
 
 
 
@@ -22,3 +27,7 @@ SCARED2 = (255, 255, 255)   # flashing phase
 DOT_CLR = (255, 200, 140)
 ENRG_CLR= (255, 255, 180)
 FRUIT_CLR=(255,  80,  80)
+
+def _hex_to_rgb(hex_color: str) -> tuple[int, int, int]:
+    h = hex_color.lstrip('#')
+    return tuple(int(h[i:i+2], 16) for i in (0, 2, 4))  # type: ignore
