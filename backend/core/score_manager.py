@@ -1,5 +1,7 @@
+import json
+from pathlib import Path
 
-
+HIGH_SCORE_FILE = Path("high_score.json")
 
 DOT_POINTS = 10
 ENERGIZER_POINTS = 50
@@ -12,10 +14,40 @@ class ScoreManager:
         self.score = 0
         self.lives = self.STARTING_LIVES
         self._ghost_combo = 0
+        self.high_score = self._load_high_score()
 
+    # ─────────── очки
+    def add_points(self, pts: int) -> None:
+        self.score += pts
+        if self.score > self.high_score:
+            self.high_score = self.score
+            self._save_high_score()
 
-    # рестарт игры
+    def add_dot(self) -> None:
+        self.add_points(DOT_POINTS)
+
+    def reset_combo(self) -> None:
+        self._ghost_combo = 0
+
+    def add_energizer(self) -> None:
+        self.add_points(ENERGIZER_POINTS)
+        self._ghost_combo = 0
+
+    def add_ghost_eaten(self) -> int:
+        self._ghost_combo += 1
+        pts = GHOST_BASE_POINTS * (2 ** (self._ghost_combo - 1))
+        self.add_points(pts)
+        return pts
+
+    # ─────────── рестарт игры
     def reset(self) -> None:
         self.score = 0
         self.lives = self.STARTING_LIVES
         self._ghost_combo = 0
+
+    # ─────────── сейв / лоад
+    def _save_high_score(self) -> None:
+        try:
+            HIGH_SCORE_FILE.write_text(json.dumps({"high_score": self.high_score}))
+        except OSError:
+            pass

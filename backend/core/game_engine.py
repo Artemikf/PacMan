@@ -36,7 +36,7 @@ class GameEngine:
         self.level = 1
         self.score_manager.reset()
 
-
-
+    def _setup_level(self, level: int) -> None:
+        self.score_manager.reset_combo()
 
 
