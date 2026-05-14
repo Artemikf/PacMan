@@ -175,4 +175,38 @@ class Renderer:
         pygame.draw.line(surface, (0, 200, 0), (fx, fy - 10), (fx + 8, fy - 18), 2)
 
 
+ # ── PacMan ────────────────────────────────────────────────────────────────
 
+    def _draw_pacman(self, surface: pygame.Surface, pacman: PacMan) -> None:
+        cx = int(pacman.position.x)
+        cy = int(pacman.position.y) + self.HUD_HEIGHT
+        radius = self.tile // 2 - 2
+        angle  = pacman.mouth_angle
+        rot    = pacman.rotation_deg
+
+        # Draw filled arc (pie slice cut out for mouth)
+        start_deg = rot + angle
+        end_deg   = rot + 360 - angle
+        self._draw_pacman_arc(surface, cx, cy, radius, start_deg, end_deg, YELLOW)
+        # Eye
+        eye_angle = math.radians(rot + 70)
+        ex = cx + int(math.cos(eye_angle) * radius * 0.5)
+        ey = cy - int(math.sin(eye_angle) * radius * 0.5)
+        pygame.draw.circle(surface, BLACK, (ex, ey), 2)
+
+    @staticmethod
+    def _draw_pacman_arc(
+        surface: pygame.Surface,
+        cx: int, cy: int, radius: int,
+        start_deg: float, end_deg: float,
+        color: tuple,
+    ) -> None:
+        """Draw a filled pie/arc shape."""
+        points = [(cx, cy)]
+        for deg in range(int(start_deg), int(end_deg) + 1, 3):
+            rad = math.radians(deg)
+            x = cx + int(math.cos(rad) * radius)
+            y = cy - int(math.sin(rad) * radius)
+            points.append((x, y))
+        if len(points) >= 3:
+            pygame.draw.polygon(surface, color, points)
