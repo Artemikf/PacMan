@@ -210,3 +210,51 @@ class Renderer:
             points.append((x, y))
         if len(points) >= 3:
             pygame.draw.polygon(surface, color, points)
+
+# ── Ghost ─────────────────────────────────────────────────────────────────
+
+    def _draw_ghost(self, surface: pygame.Surface, ghost: Ghost) -> None:
+        cx = int(ghost.position.x)
+        cy = int(ghost.position.y) + self.HUD_HEIGHT
+        r  = self.tile // 2 - 2
+
+        if ghost.mode == GhostMode.FRIGHTENED:
+            # Blue body, flashing when almost over
+            body_color = SCARED
+        elif ghost.mode == GhostMode.EATEN:
+            # Just eyes
+            self._draw_ghost_eyes(surface, cx, cy, r)
+            return
+        else:
+            body_color = ghost.color
+
+        # Body: top semicircle + rectangle bottom with wavy skirt
+        body_rect = pygame.Rect(cx - r, cy - r, r * 2, r * 2)
+        pygame.draw.ellipse(surface, body_color, body_rect)
+        lower_rect = pygame.Rect(cx - r, cy, r * 2, r)
+        pygame.draw.rect(surface, body_color, lower_rect)
+
+        # Wavy skirt (3 bumps)
+        bump_r = r // 3
+        for i in range(3):
+            bx = cx - r + bump_r + i * bump_r * 2
+            by = cy + r
+            pygame.draw.circle(surface, body_color, (bx, by), bump_r)
+
+        # Eyes
+        self._draw_ghost_eyes(surface, cx, cy, r)
+
+        # Frightened face
+        if ghost.mode == GhostMode.FRIGHTENED:
+            # Squiggly mouth
+            for i in range(-r + 4, r - 4, 4):
+                h = 3 if (i // 4) % 2 == 0 else -3
+                pygame.draw.circle(surface, WHITE, (cx + i, cy + 4 + h), 2)
+
+    @staticmethod
+    def _draw_ghost_eyes(surface: pygame.Surface, cx: int, cy: int, r: int) -> None:
+        for sign in (-1, 1):
+            ex = cx + sign * r // 3
+            ey = cy - r // 4
+            pygame.draw.circle(surface, WHITE, (ex, ey), r // 4)
+            pygame.draw.circle(surface, (0, 0, 200), (ex + sign, ey + 1), r // 6)
