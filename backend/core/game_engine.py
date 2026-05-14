@@ -21,6 +21,7 @@ class GameEngine:
 
     # ─────────────────────── режими
     def start_game(self) -> None:
+        self._setup_level(self.level)
         self.state = GameState.PLAYING
         self._running = True
 
@@ -35,8 +36,9 @@ class GameEngine:
     def restart(self) -> None:
         self.level = 1
         self.score_manager.reset()
+        self.start_game()
 
+    # ── настройка запуска
     def _setup_level(self, level: int) -> None:
         self.score_manager.reset_combo()
-
 
