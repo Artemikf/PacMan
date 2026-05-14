@@ -147,9 +147,32 @@ class Renderer:
                     rect = pygame.Rect(x, y, ts, ts)
                     pygame.draw.rect(surface, (40, 10, 40), rect)
 
+    # ── Dots and energizers ───────────────────────────────────────────────────
 
+    def _draw_dots(self, surface: pygame.Surface, game_map: GameMap) -> None:
+        ts = self.tile
+        for row in range(game_map.rows):
+            for col in range(game_map.cols):
+                cell = game_map.tile_at(row, col)
+                cx = col * ts + ts // 2
+                cy = row * ts + ts // 2 + self.HUD_HEIGHT
+                if cell == DOT:
+                    pygame.draw.circle(surface, DOT_CLR, (cx, cy), 3)
+                elif cell == ENERGIZER:
+                    pygame.draw.circle(surface, ENRG_CLR, (cx, cy), 8)
+                    # Glow ring
+                    pygame.draw.circle(surface, YELLOW, (cx, cy), 8, 1)
 
+    # ── Fruit ─────────────────────────────────────────────────────────────────
 
+    def _draw_fruit(self, surface: pygame.Surface, game_map: GameMap) -> None:
+        if not game_map.fruit or not game_map.fruit.active:
+            return
+        fx = int(game_map.fruit.position.x)
+        fy = int(game_map.fruit.position.y) + self.HUD_HEIGHT
+        pygame.draw.circle(surface, FRUIT_CLR, (fx, fy), 10)
+        # Leaf
+        pygame.draw.line(surface, (0, 200, 0), (fx, fy - 10), (fx + 8, fy - 18), 2)
 
 
 
