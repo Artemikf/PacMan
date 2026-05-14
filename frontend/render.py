@@ -30,7 +30,7 @@ FRUIT_CLR=(255,  80,  80)
 
 def _hex_to_rgb(hex_color: str) -> tuple[int, int, int]:
     h = hex_color.lstrip('#')
-    return tuple(int(h[i:i+2], 16) for i in (0, 2, 4))  # type: ignore
+    return tuple(int(h[i:i+2], 16) for i in (0, 2, 4))
 
 class Renderer:
     HUD_HEIGHT = 48
@@ -52,9 +52,34 @@ class Renderer:
         self.font_tiny  = pygame.font.SysFont("monospace", 14)
         self.screen: pygame.Surface | None = None
 
+    # ── Screen management ─────────────────────────────────────────────────────
 
+    def init_screen(self) -> pygame.Surface:
+        self.screen = pygame.display.set_mode((self.width, self.height))
+        pygame.display.set_caption(self.config.window_title)
+        return self.screen
 
+    # ── Master draw ───────────────────────────────────────────────────────────
 
+    def draw_game(
+            self,
+            surface: pygame.Surface,
+            game_map: GameMap,
+            pacman: PacMan,
+            ghosts: list[Ghost],
+            score: int,
+            high_score: int,
+            lives: int,
+            level: int,
+    ) -> None:
+        surface.fill(self.game_bg_color)
+        self._draw_maze(surface, game_map)
+        self._draw_dots(surface, game_map)
+        self._draw_fruit(surface, game_map)
+        self._draw_pacman(surface, pacman)
+        for ghost in ghosts:
+            self._draw_ghost(surface, ghost)
+        self._draw_hud(surface, score, high_score, lives, level)
 
 
 
