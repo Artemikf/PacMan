@@ -1,4 +1,5 @@
 from enum import Enum, auto
+from backend.core.score_manager import ScoreManager
 
 # перечисление состояний
 class GameState(Enum):
@@ -15,6 +16,8 @@ class GameEngine:
         self.state = GameState.MENU
         self.level = 1
         self._running = False
+        self.score_manager = ScoreManager()
+
 
     # ─────────────────────── режими
     def start_game(self) -> None:
@@ -31,7 +34,7 @@ class GameEngine:
 
     def restart(self) -> None:
         self.level = 1
-
+        self.score_manager.reset()
 
 
 
