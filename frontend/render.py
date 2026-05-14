@@ -31,3 +31,32 @@ FRUIT_CLR=(255,  80,  80)
 def _hex_to_rgb(hex_color: str) -> tuple[int, int, int]:
     h = hex_color.lstrip('#')
     return tuple(int(h[i:i+2], 16) for i in (0, 2, 4))  # type: ignore
+
+class Renderer:
+    HUD_HEIGHT = 48
+    FONT_NAME  = None
+
+
+    def __init__(self, config: GameConfig, game_map: GameMap):
+        self.config = config
+        self.tile   = game_map.TILE_SIZE
+        self.cols   = game_map.cols
+        self.rows   = game_map.rows
+        self.width  = game_map.pixel_width()
+        self.height = game_map.pixel_height() + self.HUD_HEIGHT
+        self.bg_color      = _hex_to_rgb(config.bg_color)
+        self.game_bg_color = _hex_to_rgb(config.game_bg_color)
+        pygame.font.init()
+        self.font_large = pygame.font.SysFont("monospace", 28, bold=True)
+        self.font_small = pygame.font.SysFont("monospace", 18)
+        self.font_tiny  = pygame.font.SysFont("monospace", 14)
+        self.screen: pygame.Surface | None = None
+
+
+
+
+
+
+
+
+
