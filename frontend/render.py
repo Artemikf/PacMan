@@ -128,3 +128,28 @@ class Renderer:
         surface.blit(s, (self.width // 2 - s.get_width() // 2, self.height // 2))
         hint = self.font_small.render("ENTER — New Game   ESC — Menu", True, (160, 160, 160))
         surface.blit(hint, (self.width // 2 - hint.get_width() // 2, self.height // 2 + 50))
+
+    # ── Maze ──────────────────────────────────────────────────────────────────
+
+    def _draw_maze(self, surface: pygame.Surface, game_map: GameMap) -> None:
+        ts = self.tile
+        for row in range(game_map.rows):
+            for col in range(game_map.cols):
+                cell = game_map.tile_at(row, col)
+                x, y = col * ts, row * ts + self.HUD_HEIGHT
+                if cell == WALL:
+                    rect = pygame.Rect(x, y, ts, ts)
+                    pygame.draw.rect(surface, BLUE, rect)
+                    # Inner highlight
+                    inner = rect.inflate(-4, -4)
+                    pygame.draw.rect(surface, LBLUE, inner, 1)
+                elif cell == GHOST_HOUSE:
+                    rect = pygame.Rect(x, y, ts, ts)
+                    pygame.draw.rect(surface, (40, 10, 40), rect)
+
+
+
+
+
+
+
