@@ -51,3 +51,12 @@ class ScoreManager:
             HIGH_SCORE_FILE.write_text(json.dumps({"high_score": self.high_score}))
         except OSError:
             pass
+
+    def _load_high_score(self) -> int:
+        try:
+            if HIGH_SCORE_FILE.exists():
+                data = json.loads(HIGH_SCORE_FILE.read_text())
+                return int(data.get("high_score", 0))
+        except (json.JSONDecodeError, ValueError):
+            pass
+        return 0
