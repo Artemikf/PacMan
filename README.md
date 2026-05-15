@@ -19,6 +19,34 @@ ___
 
 ![Diagram_Analysis_System.png](_Resourse/img/Diagram_Analysis_System.png)
 
+___
+## Startup Commands
+
+```powershell 
+python main.py # обычный запуск
+```
+
+```powershell 
+python main.py --difficulty hard # сложный режим
+``` 
+
+```powershell 
+python main.py --bg-color "#1a1a2e" # цвет фона меню
+``` 
+
+```powershell 
+python main.py --game-bg-color "#16213e" # цвет фона игры
+```
+
+```powershell 
+python main.py --difficulty easy --mute # легко + без звука python 
+```
+
+```powershell 
+main.py --levels 5 # 5 уровней до победы
+```
+
+
 
 
 
