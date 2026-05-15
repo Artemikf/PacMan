@@ -258,3 +258,29 @@ class Renderer:
             ey = cy - r // 4
             pygame.draw.circle(surface, WHITE, (ex, ey), r // 4)
             pygame.draw.circle(surface, (0, 0, 200), (ex + sign, ey + 1), r // 6)
+
+# ── HUD ───────────────────────────────────────────────────────────────────
+
+    def _draw_hud(
+        self,
+        surface: pygame.Surface,
+        score: int,
+        high_score: int,
+        lives: int,
+        level: int,
+    ) -> None:
+        pygame.draw.rect(surface, (20, 20, 20), (0, 0, self.width, self.HUD_HEIGHT))
+        score_txt = self.font_small.render(f"Score: {score}", True, WHITE)
+        hs_txt    = self.font_small.render(f"HI: {high_score}", True, CYAN)
+        lvl_txt   = self.font_small.render(f"Lvl {level}", True, YELLOW)
+        surface.blit(score_txt, (10, 12))
+        surface.blit(hs_txt, (self.width // 2 - hs_txt.get_width() // 2, 12))
+        surface.blit(lvl_txt, (self.width - lvl_txt.get_width() - 10, 12))
+        # Lives (small pac-man icons)
+        for i in range(lives):
+            lx = 10 + i * 22
+            ly = self.HUD_HEIGHT - 16
+            self._draw_pacman_arc(surface, lx, ly, 8, 30, 330, YELLOW)
+
+
+
