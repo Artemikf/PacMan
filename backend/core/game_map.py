@@ -59,6 +59,25 @@ class Vec2:
 
 
 
+class GameMap:
+    # Управляет сеткой плиток, точками, активаторами и появлением фруктов
+
+    TILE_SIZE = 32
+
+    def __init__(self, level: int = 1):
+        self.level = level
+        self.rows = ROWS
+        self.cols = COLS
+
+    # ───────── аксессуары
+
+    @property
+    def pacman_start(self) -> Vec2:
+        return Vec2.from_grid(16, 10, self.TILE_SIZE)
+
+
+
+
 
 
 
