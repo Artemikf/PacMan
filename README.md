@@ -9,6 +9,15 @@ Pac-Man game written in Python using Pygame.
 - IPZ-23
 - PG-7
 
+___
+
+## Diagram Analysis Body: 
+
+![Diagram_Analysis_Body.png](_Resourse/img/Diagram_Analysis_Body.png)
+
+## Diagram Analysis System
+
+![Diagram_Analysis_System.png](_Resourse/img/Diagram_Analysis_System.png)
 
 
 
