@@ -1,3 +1,7 @@
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![Pygame](https://img.shields.io/badge/Pygame-2.5+-green)
+![CI](https://github.com/Artemikf/PacMan/actions/workflows/ci.yml/badge.svg)
+
 ## PacMan game
 Pac-Man game written in Python using Pygame.
 
@@ -45,8 +49,5 @@ python main.py --difficulty easy --mute # легко + без звука python
 ```powershell 
 main.py --levels 5 # 5 уровней до победы
 ```
-
-
-
 
 
