@@ -64,3 +64,5 @@ def parse_args() -> argparse.Namespace:
         help="Disable all sound effects"
     )
     return parser.parse_args()
+
+
