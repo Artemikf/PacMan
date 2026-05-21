@@ -4,13 +4,13 @@ import pygame
 
 from backend.core.game_map import GameMap, Vec2, WALL, DOT, ENERGIZER, GHOST_HOUSE
 from backend.entities.pacman import PacMan
-<<<<<<< HEAD
+
 from backend.entities.ghost import Ghost, GhostMode
 from backend.core import game_engine
-=======
+
 from backend.entities.ghost import Ghost, GhostMode, GhostPersonality
 from backend.core.game_engine import GameState
->>>>>>> 2083a73066815042337803136bb48c36e9497bbc
+
 from backend.utils.config import GameConfig
 
 

@@ -11,7 +11,7 @@ class InputHandler:
     def poll(self) -> None:
         self._events = pygame.event.get()
 
-<<<<<<< HEAD
+
     @property
     def quit_requested(self) -> bool:
         return any(e.type == pygame.QUIT for e in self._events)
@@ -50,7 +50,5 @@ class InputHandler:
                 if e.key in (pygame.K_RIGHT, pygame.K_d):
                     return DIR_RIGHT
         return None
-=======
 
->>>>>>> 2083a73066815042337803136bb48c36e9497bbc
 

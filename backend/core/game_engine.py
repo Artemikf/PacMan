@@ -4,7 +4,7 @@ from backend.core.game_map import GameMap
 from backend.entities.pacman import PacMan
 from backend.entities.ghost import Ghost, GhostPersonality
 from backend.core.score_manager import ScoreManager
-from backend.utils import config
+from backend.utils.config import GameConfig
 
 # перечисление состояний
 class GameState(Enum):
@@ -17,8 +17,8 @@ class GameState(Enum):
 # центральный игровой движок
 class GameEngine:
 
-    def __init__(self):
-        self.config = config
+    def __init__(self, game_config):
+        self.config = game_config
         self.state = GameState.MENU
         self.level = 1
         self.score_manager = ScoreManager()
