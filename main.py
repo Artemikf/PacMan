@@ -11,24 +11,24 @@ from frontend.sound_manager import SoundManager
 def main() -> None:
     args   = parse_args()
     config = GameConfig.from_args(args)
+    pygame.init() # читает --difficulty, --bg-color и т.д
 
-    pygame.init()
-    engine = GameEngine(config)
-    engine.start_game()  # initialises map so Renderer can measure dimensions
+    engine = GameEngine(config) # строит единый объект настроек, state=MENU, game_map=None
+    engine.start_game()  #  создаёт GameMap, PacMan, 4×Ghost
 
     renderer = Renderer(config, engine.game_map)
     screen   = renderer.init_screen()
     inputs   = InputHandler()
     sounds   = SoundManager(config.mute)
-    clock    = pygame.time.Clock()
+    clock    = pygame.time.Clock() # для ограничения FPS
 
     # Track previous state to trigger one-shot sounds
     _prev_score = 0
     _prev_lives = engine.lives
 
     while True:
-        dt = clock.tick(config.fps) / 1000.0  # seconds
-        inputs.poll()
+        dt = clock.tick(config.fps) / 1000.0  #  ≈ 0.0167 сек при 60 FPS
+        inputs.poll() # шаг 1: забрать все события клавиатуры
 
         # ── Global exit
         if inputs.quit_requested:

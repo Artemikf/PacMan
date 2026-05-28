@@ -49,7 +49,9 @@ class GameEngine:
 
     # ── Цикл обновления
 
-    def update(self, dt: float) -> None:
+    def update(self, dt: float) -> None:  # Принцип: проверяет состояние (if self.state != PLAYING: return),
+        # обновляет PacMan, обновляет всех призраков, проверяет коллизии, проверяет состояние игры.
+
         if self.state != GameState.PLAYING:
             return
         self.pacman.update(dt, self.game_map)
