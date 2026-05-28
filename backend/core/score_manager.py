@@ -45,6 +45,11 @@ class ScoreManager:
         self.lives = self.STARTING_LIVES
         self._ghost_combo = 0
 
+    def lose_life(self) -> None:
+        if self.lives > 0:
+            self.lives -= 1
+        self._ghost_combo = 0
+
     # ─────────── сейв / лоад
     def _save_high_score(self) -> None:
         try:

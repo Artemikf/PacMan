@@ -17,8 +17,8 @@ class GameState(Enum):
 # центральный игровой движок
 class GameEngine:
 
-    def __init__(self, game_config):
-        self.config = game_config
+    def __init__(self, config: GameConfig):
+        self.config = config
         self.state = GameState.MENU
         self.level = 1
         self.score_manager = ScoreManager()
