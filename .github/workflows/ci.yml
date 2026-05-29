@@ -25,10 +25,11 @@ jobs:
 
       - name: Run Pytest with HTML report
         env:
+          PYTHONPATH: .
           SDL_VIDEODRIVER: dummy
           SDL_AUDIODRIVER: dummy
         run: |
-          pytest tests/ -v \
+          python -m pytest tests -v \
             --tb=short \
             --html=reports/test_report.html \
             --self-contained-html
