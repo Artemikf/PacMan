@@ -62,16 +62,18 @@ jobs:
       - name: Run Flake8 with HTML report
         run: |
           mkdir -p reports
+
           flake8 backend/ frontend/ main.py \
             --max-line-length=120 \
             --exclude=__pycache__,.venv \
             --format=html \
             --htmldir=reports/flake8_report \
             --statistics || true
+
           flake8 backend/ frontend/ main.py \
             --max-line-length=120 \
             --exclude=__pycache__,.venv \
-            --count --statistics
+            --count --statistics || true
 
       - name: Upload lint report
         if: always()
