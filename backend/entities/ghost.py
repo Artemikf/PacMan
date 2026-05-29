@@ -165,6 +165,7 @@ class Ghost:
             return self.base_speed * self.EATEN_SPEED_MULT
         return self.base_speed
 
+    # воскрешение
     def _move_toward(self, target: Vec2, speed: float, dt: float, game_map: GameMap) -> None:
         # Движение по сетке: выбирайте оптимальный поворот на каждом перекрестке
         step = speed * dt

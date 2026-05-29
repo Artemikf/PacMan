@@ -6,6 +6,9 @@ from backend.entities.ghost import Ghost, GhostPersonality
 from backend.core.score_manager import ScoreManager
 from backend.utils.config import GameConfig
 
+# Не рисует, не читает клавиши. Только координирует все объекты: владеет GameMap, PacMan, списком Ghost,
+# ScoreManager. Знает текущее состояние игры
+
 # перечисление состояний
 class GameState(Enum):
     MENU = auto()
