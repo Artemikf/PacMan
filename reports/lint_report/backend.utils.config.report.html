@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>flake8 violations: backend\utils\config.py</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+<script>
+function bindHandler(link) {
+   var code = link.getAttribute('data-code');
+   var key = location.pathname + '#' + code;
+
+   var ul = link.parentNode.querySelector('.details');
+   if (sessionStorage[key] != 'open') {
+      ul.style.display = 'none';
+   }
+   link.addEventListener('click', function (event) {
+      if (!ul.style.display || ul.style.display == 'none') {
+         ul.style.display = 'block';
+         sessionStorage[key] = 'open';
+      } else {
+         ul.style.display = 'none';
+         sessionStorage[key] = 'closed';
+      }
+   });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+   var links = document.querySelectorAll('#index > li > a');
+   for (var i = 0; i < links.length; i++) {
+      bindHandler(links[i]);
+   }
+});
+</script>
+   </head>
+   <body>
+      <div id="masthead" class="sev-2"></div>
+      <div id="page">
+         <p id="srclink">
+            <a title="View full annotated source"
+               href="backend.utils.config.source.html">
+               <img src="file.svg" alt="&#x2261;">
+            </a></p>
+         <h1>
+            <a href="index.html">
+               <img src="back.svg" alt="&#x2B05;">
+               backend\utils\config.py
+            </a>
+         </h1>
+
+         <ul id="index">
+         
+         <li>
+            <a data-code="E241">
+               <span class="count sev-2">
+                  4
+               </span>
+               <strong>E241:</strong> multiple spaces after ':'
+               
+                  (and 1 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Multiple spaces after ':':</p>
+               
+               <a href="backend.utils.config.source.html#l38">
+                  <tt><i>38</i>     <span class="s2">&quot;easy&quot;</span><span class="p">:</span>   <span class="nb">dict</span><span class="p">(</span><span class="n">ghost_speed</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">pacman_speed</span><span class="o">=</span><span class="mi">160</span><span class="p">,</span> <span class="n">frighten_duration</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">ghost_speed_increase</span><span class="o">=</span><span class="mf">0.05</span><span class="p">),</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Multiple spaces after ',':</p>
+               
+               <a href="backend.utils.config.source.html#l39">
+                  <tt><i>39</i>     <span class="s2">&quot;normal&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">ghost_speed</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">pacman_speed</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">frighten_duration</span><span class="o">=</span><span class="mf">7.0</span><span class="p">,</span>  <span class="n">ghost_speed_increase</span><span class="o">=</span><span class="mf">0.10</span><span class="p">),</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Multiple spaces after ',':</p>
+               
+               <a href="backend.utils.config.source.html#l40">
+                  <tt><i>40</i>     <span class="s2">&quot;hard&quot;</span><span class="p">:</span>   <span class="nb">dict</span><span class="p">(</span><span class="n">ghost_speed</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">pacman_speed</span><span class="o">=</span><span class="mi">140</span><span class="p">,</span> <span class="n">frighten_duration</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span>  <span class="n">ghost_speed_increase</span><span class="o">=</span><span class="mf">0.15</span><span class="p">),</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Multiple spaces after ':':</p>
+               
+               <a href="backend.utils.config.source.html#l40">
+                  <tt><i>40</i>     <span class="s2">&quot;hard&quot;</span><span class="p">:</span>   <span class="nb">dict</span><span class="p">(</span><span class="n">ghost_speed</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">pacman_speed</span><span class="o">=</span><span class="mi">140</span><span class="p">,</span> <span class="n">frighten_duration</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span>  <span class="n">ghost_speed_increase</span><span class="o">=</span><span class="mf">0.15</span><span class="p">),</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         </ul>
+      </div>
+   </body>
+</html>

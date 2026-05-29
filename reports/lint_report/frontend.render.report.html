@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>flake8 violations: frontend\render.py</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+<script>
+function bindHandler(link) {
+   var code = link.getAttribute('data-code');
+   var key = location.pathname + '#' + code;
+
+   var ul = link.parentNode.querySelector('.details');
+   if (sessionStorage[key] != 'open') {
+      ul.style.display = 'none';
+   }
+   link.addEventListener('click', function (event) {
+      if (!ul.style.display || ul.style.display == 'none') {
+         ul.style.display = 'block';
+         sessionStorage[key] = 'open';
+      } else {
+         ul.style.display = 'none';
+         sessionStorage[key] = 'closed';
+      }
+   });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+   var links = document.querySelectorAll('#index > li > a');
+   for (var i = 0; i < links.length; i++) {
+      bindHandler(links[i]);
+   }
+});
+</script>
+   </head>
+   <body>
+      <div id="masthead" class="sev-1"></div>
+      <div id="page">
+         <p id="srclink">
+            <a title="View full annotated source"
+               href="frontend.render.source.html">
+               <img src="file.svg" alt="&#x2261;">
+            </a></p>
+         <h1>
+            <a href="index.html">
+               <img src="back.svg" alt="&#x2B05;">
+               frontend\render.py
+            </a>
+         </h1>
+
+         <ul id="index">
+         
+         <li>
+            <a data-code="F401">
+               <span class="count sev-1">
+                  4
+               </span>
+               <strong>F401:</strong> 'backend.core.game_map.Vec2' imported but unused
+               
+                  (and 3 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>'backend.core.game_map.Vec2' imported but unused:</p>
+               
+               <a href="frontend.render.source.html#l5">
+                  <tt><i>5</i> <span class="kn">from</span><span class="w"> </span><span class="nn">backend.core.game_map</span><span class="w"> </span><span class="kn">import</span> <span class="n">GameMap</span><span class="p">,</span> <span class="n">Vec2</span><span class="p">,</span> <span class="n">WALL</span><span class="p">,</span> <span class="n">DOT</span><span class="p">,</span> <span class="n">ENERGIZER</span><span class="p">,</span> <span class="n">GHOST_HOUSE</span></tt>
+               </a>
+            </li><li>
+               
+               <p>'backend.core.game_engine' imported but unused:</p>
+               
+               <a href="frontend.render.source.html#l9">
+                  <tt><i>9</i> <span class="kn">from</span><span class="w"> </span><span class="nn">backend.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">game_engine</span></tt>
+               </a>
+            </li><li>
+               
+               <p>'backend.entities.ghost.GhostPersonality' imported but unused:</p>
+               
+               <a href="frontend.render.source.html#l11">
+                  <tt><i>11</i> <span class="kn">from</span><span class="w"> </span><span class="nn">backend.entities.ghost</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ghost</span><span class="p">,</span> <span class="n">GhostMode</span><span class="p">,</span> <span class="n">GhostPersonality</span></tt>
+               </a>
+            </li><li>
+               
+               <p>'backend.core.game_engine.GameState' imported but unused:</p>
+               
+               <a href="frontend.render.source.html#l12">
+                  <tt><i>12</i> <span class="kn">from</span><span class="w"> </span><span class="nn">backend.core.game_engine</span><span class="w"> </span><span class="kn">import</span> <span class="n">GameState</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="F811">
+               <span class="count sev-1">
+                  2
+               </span>
+               <strong>F811:</strong> redefinition of unused 'Ghost' from line 8
+               
+                  (and 1 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Redefinition of unused 'Ghost' from line 8:</p>
+               
+               <a href="frontend.render.source.html#l11">
+                  <tt><i>11</i> <span class="kn">from</span><span class="w"> </span><span class="nn">backend.entities.ghost</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ghost</span><span class="p">,</span> <span class="n">GhostMode</span><span class="p">,</span> <span class="n">GhostPersonality</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Redefinition of unused 'GhostMode' from line 8:</p>
+               
+               <a href="frontend.render.source.html#l11">
+                  <tt><i>11</i> <span class="kn">from</span><span class="w"> </span><span class="nn">backend.entities.ghost</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ghost</span><span class="p">,</span> <span class="n">GhostMode</span><span class="p">,</span> <span class="n">GhostPersonality</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E241">
+               <span class="count sev-2">
+                  12
+               </span>
+               <strong>E241:</strong> multiple spaces after ','
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Multiple spaces after ',':</p>
+               
+               <a href="frontend.render.source.html#l21">
+                  <tt><i>21</i> <span class="n">YELLOW</span>  <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span>  <span class="mi">0</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Multiple spaces after ',':</p>
+               
+               <a href="frontend.render.source.html#l22">
+                  <tt><i>22</i> <span class="n">BLUE</span>    <span class="o">=</span> <span class="p">(</span> <span class="mi">33</span><span class="p">,</span>  <span class="mi">33</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Multiple spaces after ',' (in 2 places):</p>
+               
+               <a href="frontend.render.source.html#l24">
+                  <tt><i>24</i> <span class="n">BLACK</span>   <span class="o">=</span> <span class="p">(</span>  <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Multiple spaces after ',' (in 2 places):</p>
+               
+               <a href="frontend.render.source.html#l25">
+                  <tt><i>25</i> <span class="n">DARK</span>    <span class="o">=</span> <span class="p">(</span> <span class="mi">10</span><span class="p">,</span>  <span class="mi">10</span><span class="p">,</span>  <span class="mi">20</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Multiple spaces after ',' (in 2 places):</p>
+               
+               <a href="frontend.render.source.html#l26">
+                  <tt><i>26</i> <span class="n">RED</span>     <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Multiple spaces after ',':</p>
+               
+               <a href="frontend.render.source.html#l29">
+                  <tt><i>29</i> <span class="n">ORANGE</span>  <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">184</span><span class="p">,</span>  <span class="mi">82</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Multiple spaces after ',':</p>
+               
+               <a href="frontend.render.source.html#l30">
+                  <tt><i>30</i> <span class="n">SCARED</span>  <span class="o">=</span> <span class="p">(</span> <span class="mi">30</span><span class="p">,</span>  <span class="mi">30</span><span class="p">,</span> <span class="mi">220</span><span class="p">)</span>   <span class="c1"># frightened ghost body</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Multiple spaces after ',' (in 2 places):</p>
+               
+               <a href="frontend.render.source.html#l34">
+                  <tt><i>34</i> <span class="n">FRUIT_CLR</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span>  <span class="mi">80</span><span class="p">,</span>  <span class="mi">80</span><span class="p">)</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E201">
+               <span class="count sev-2">
+                  6
+               </span>
+               <strong>E201:</strong> whitespace after '('
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="frontend.render.source.html#l22">
+                  <tt><i>22</i> <span class="n">BLUE</span>    <span class="o">=</span> <span class="p">(</span> <span class="mi">33</span><span class="p">,</span>  <span class="mi">33</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="frontend.render.source.html#l23">
+                  <tt><i>23</i> <span class="n">LBLUE</span>   <span class="o">=</span> <span class="p">(</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>  <span class="c1"># wall highlight</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="frontend.render.source.html#l24">
+                  <tt><i>24</i> <span class="n">BLACK</span>   <span class="o">=</span> <span class="p">(</span>  <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="frontend.render.source.html#l25">
+                  <tt><i>25</i> <span class="n">DARK</span>    <span class="o">=</span> <span class="p">(</span> <span class="mi">10</span><span class="p">,</span>  <span class="mi">10</span><span class="p">,</span>  <span class="mi">20</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="frontend.render.source.html#l27">
+                  <tt><i>27</i> <span class="n">CYAN</span>    <span class="o">=</span> <span class="p">(</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="frontend.render.source.html#l30">
+                  <tt><i>30</i> <span class="n">SCARED</span>  <span class="o">=</span> <span class="p">(</span> <span class="mi">30</span><span class="p">,</span>  <span class="mi">30</span><span class="p">,</span> <span class="mi">220</span><span class="p">)</span>   <span class="c1"># frightened ghost body</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E114">
+               <span class="count sev-2">
+                  1
+               </span>
+               <strong>E114:</strong> indentation is not a multiple of 4 (comment)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="frontend.render.source.html#l183">
+                  <tt><i>183</i>  <span class="c1"># ── PacMan ────────────────────────────────────────────────────────────────</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E226">
+               <span class="count sev-2">
+                  1
+               </span>
+               <strong>E226:</strong> missing whitespace around arithmetic operator
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="frontend.render.source.html#l38">
+                  <tt><i>38</i>     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         </ul>
+      </div>
+   </body>
+</html>
